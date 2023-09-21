@@ -6,16 +6,16 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/21 15:42:25 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/09/21 19:05:20 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
-C++_FLAGS = -Wall -Wextra -Werror -std=c++98
+C++_FLAGS = -g -Wall -Wextra -Werror -std=c++98
 INFILES = 	main.cpp\
-			Contact.cpp\
-			PhoneBook.cpp\
-			search_contact.cpp\
+			Zombie.cpp\
+			newZombie.cpp\
+			randomChump.cpp\
 
 OBJFILES = $(INFILES:.cpp=.o)
 
