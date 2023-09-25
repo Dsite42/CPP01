@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:50:36 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/22 15:23:09 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:39:36 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,4 @@ void Weapon::setType(std::string type)
 const std::string &Weapon::getType() const
 {
 	return (_type);
-} 
+}

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:42:50 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/22 15:23:24 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:40:10 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 #include <iostream>
 #include "Weapon.hpp"
 #include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main(void)
+int main()
 {
-	Weapon club = Weapon("test");
-	HumanA Bob("Bob", club);
-	Bob.attack();
-
-	return (0);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+return 0;
 }
