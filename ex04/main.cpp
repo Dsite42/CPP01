@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:52:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/25 18:20:46 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/27 09:16:27 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 
 int main(int argc, char **argv)
 {
+	std::string nameOutputfile;
 
 	if (argc != 4)
-		return (std::cout << "Wrong number of arguments", 0);
+		return (std::cout << "Wrong number of arguments" << std::endl, 0);
+	nameOutputfile = nameOutputfile + argv[1] + ".replace";
 	
 	
 	std::ifstream inputFile;
 	std::ofstream outputFile;
 	std::string line;
-	inputFile.open("input.txt", std::fstream::in);
-	outputFile.open("output.txt", std::fstream::out);
+	inputFile.open(argv[1], std::fstream::in);
+	outputFile.open(nameOutputfile, std::fstream::out);
 	if (!inputFile || !outputFile)
 	{
         std::cerr << "Failed to open files!" << std::endl;
