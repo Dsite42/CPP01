@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:52:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/27 09:16:27 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/27 09:37:59 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int main(int argc, char **argv)
 	while(std::getline(inputFile, line))
 	{
 		
+		replaced_line.clear();
+		end_last_found = 0;
 		found = line.find(to_find);
 		if (found != std::string::npos)
 		{
@@ -65,6 +67,7 @@ int main(int argc, char **argv)
 		std::cout << replaced_line <<std::endl;
 	
 	}
+	std::cout << "test:" << line;
 	inputFile.close();
 	outputFile.close();
 	return (0);
