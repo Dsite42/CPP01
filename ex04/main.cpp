@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:52:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/27 10:17:15 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:36:07 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <iostream>
 #include <fstream>
 
-static int openFiles(char *inputFileName, std::string nameOutputfile,
+static int open_files(std::string nameInputFile, std::string nameOutputfile,
 					std::ifstream *inputFile, std::ofstream *outputFile)
 {
-	(*inputFile).open(inputFileName, std::fstream::in);
+	(*inputFile).open(nameInputFile, std::fstream::in);
 	(*outputFile).open(nameOutputfile, std::fstream::out);
 	if (!inputFile || !outputFile)
 	{
@@ -30,27 +30,20 @@ static int openFiles(char *inputFileName, std::string nameOutputfile,
 	return (0);
 }
 
-int main(int argc, char **argv)
+static void read_and_replace(char **argv, std::ifstream *inputFile, std::ofstream *outputFile)
 {
-	std::string nameOutputfile;
-
-	if (argc != 4)
-		return (std::cout << "Wrong number of arguments" << std::endl, 0);
-	nameOutputfile = nameOutputfile + argv[1] + ".replace";
-	
-	
-	std::ifstream inputFile;
-	std::ofstream outputFile;
+	std::string to_find;
+	std::string to_replace;
 	std::string line;
-	if (openFiles(argv[1], nameOutputfile, &inputFile, &outputFile))
-		return (1);
-	std::string to_find = *(argv + 2);
-	std::string to_replace = *(argv + 3);
-
 	std::string::size_type found;
-	size_t end_last_found = 0;
+	size_t end_last_found;
 	std::string replaced_line;
-	while(std::getline(inputFile, line))
+
+	to_find = *(argv + 2);
+	to_replace = *(argv + 3);
+	end_last_found = 0;
+
+	while(std::getline(*inputFile, line))
 	{
 		
 		replaced_line.clear();
@@ -70,12 +63,27 @@ int main(int argc, char **argv)
 		}
 		else
 			replaced_line = line;
-
-		if (!inputFile.eof())
-			outputFile << replaced_line << std::endl;
+		if (!(*inputFile).eof())
+			*outputFile << replaced_line << std::endl;
 		else
-			outputFile << replaced_line ;
+			*outputFile << replaced_line ;
 	}
+}
+
+int main(int argc, char **argv)
+{
+	std::string nameInputFile;
+	std::string nameOutputfile;
+	std::ifstream inputFile;
+	std::ofstream outputFile;
+
+	if (argc != 4)
+		return (std::cout << "Wrong number of arguments" << std::endl, 0);
+	nameInputFile = argv[1];
+	nameOutputfile = nameOutputfile + argv[1] + ".replace";
+	if (open_files(nameInputFile, nameOutputfile, &inputFile, &outputFile))
+		return (1);
+	read_and_replace(argv, &inputFile, &outputFile);
 	inputFile.close();
 	outputFile.close();
 	return (0);
