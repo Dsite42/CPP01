@@ -6,13 +6,29 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:52:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/27 09:37:59 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:17:15 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <fstream>
+
+static int openFiles(char *inputFileName, std::string nameOutputfile,
+					std::ifstream *inputFile, std::ofstream *outputFile)
+{
+	(*inputFile).open(inputFileName, std::fstream::in);
+	(*outputFile).open(nameOutputfile, std::fstream::out);
+	if (!inputFile || !outputFile)
+	{
+        std::cerr << "Failed to open files!" << std::endl;
+		(*inputFile).close();
+		(*outputFile).close();
+
+        return (1);
+    }
+	return (0);
+}
 
 int main(int argc, char **argv)
 {
@@ -26,17 +42,8 @@ int main(int argc, char **argv)
 	std::ifstream inputFile;
 	std::ofstream outputFile;
 	std::string line;
-	inputFile.open(argv[1], std::fstream::in);
-	outputFile.open(nameOutputfile, std::fstream::out);
-	if (!inputFile || !outputFile)
-	{
-        std::cerr << "Failed to open files!" << std::endl;
-		inputFile.close();
-		outputFile.close();
-
-        return (1);
-    }
-
+	if (openFiles(argv[1], nameOutputfile, &inputFile, &outputFile))
+		return (1);
 	std::string to_find = *(argv + 2);
 	std::string to_replace = *(argv + 3);
 
@@ -63,11 +70,12 @@ int main(int argc, char **argv)
 		}
 		else
 			replaced_line = line;
-		outputFile << replaced_line << std::endl;
-		std::cout << replaced_line <<std::endl;
-	
+
+		if (!inputFile.eof())
+			outputFile << replaced_line << std::endl;
+		else
+			outputFile << replaced_line ;
 	}
-	std::cout << "test:" << line;
 	inputFile.close();
 	outputFile.close();
 	return (0);
