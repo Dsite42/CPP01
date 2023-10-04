@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:33:33 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/27 11:55:35 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:10:04 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 class Harl
 {
 	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+		void _debug(void);
+		void _info(void);
+		void _warning(void);
+		void _error(void);
 	public:
-		void complain(std::string level);
+		Harl();
+		~Harl();
+		void complain(std::string level) ;
 };
-
 #endif
