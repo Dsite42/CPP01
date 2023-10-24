@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:42:50 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/22 11:50:35 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:38:29 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int main(void)
 	horde = zombieHorde(N, "Horde");
  	for (int i = 0; i < N; i++)
 	{
-        horde[i].announce();
+       std::cout << "Index " << i << ": ";
+	   horde[i].announce();
     }
 
 	delete[] horde;
