@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:52:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/27 10:36:07 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:24:21 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static int open_files(std::string nameInputFile, std::string nameOutputfile,
 
 static void read_and_replace(char **argv, std::ifstream *inputFile, std::ofstream *outputFile)
 {
-	std::string to_find;
-	std::string to_replace;
-	std::string line;
-	std::string::size_type found;
-	size_t end_last_found;
-	std::string replaced_line;
+	std::string 			to_find;
+	std::string 			to_replace;
+	std::string 			line;
+	std::string::size_type	found;
+	size_t					end_last_found;
+	std::string				replaced_line;
 
 	to_find = *(argv + 2);
 	to_replace = *(argv + 3);
@@ -66,7 +66,7 @@ static void read_and_replace(char **argv, std::ifstream *inputFile, std::ofstrea
 		if (!(*inputFile).eof())
 			*outputFile << replaced_line << std::endl;
 		else
-			*outputFile << replaced_line ;
+			*outputFile << replaced_line;
 	}
 }
 
