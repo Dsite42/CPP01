@@ -6,12 +6,12 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/21 19:05:20 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/10/24 12:37:24 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
-C++_FLAGS = -g -Wall -Wextra -Werror -std=c++98
+C++_FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 INFILES = 	main.cpp\
 			Zombie.cpp\
 			newZombie.cpp\
