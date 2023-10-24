@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:52:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/25 10:39:52 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:59:42 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ class HumanA
 		std::string _name;
 		Weapon &_weapon;
 	public:
+		// Constructors
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
+
+		// Member functions
 		void attack();
-		
-	HumanA(std::string name, Weapon &weapon);
-	~HumanA();
 };
 
 #endif

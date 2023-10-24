@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:51:37 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/25 10:40:06 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:01:17 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 static Weapon noWeapon("No weapon");
 
-HumanB::HumanB(std::string name) : _name(name), _weapon(nullptr)
-{
-}
-
-HumanB::HumanB(std::string name, Weapon &weapon) : _name(name), _weapon(&weapon)
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 {
 }
 

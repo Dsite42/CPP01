@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:54:07 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/25 10:39:58 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:01:03 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ class HumanB
 		std::string _name;
 		Weapon *_weapon;
 	public:
-		void attack();
-	HumanB(std::string name);
-	HumanB(std::string name, Weapon &weapon);
-	~HumanB();
+		// Constructors
+		HumanB(std::string name);
+		~HumanB();
 
-	void setWeapon(Weapon &weapon);
+		// Member functions
+		void attack();
+		void setWeapon(Weapon &weapon);
 };
 
 #endif
